@@ -1,0 +1,11 @@
+/**
+p{//element 1 point
+  color: black;
+}
+.info{//class selector 10 points
+  color:red;
+}
+#important{//id selector 100 points
+  font-size: 35px;
+}
+**/
