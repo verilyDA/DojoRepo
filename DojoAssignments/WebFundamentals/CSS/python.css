@@ -1,0 +1,88 @@
+*{
+  margin:0px;
+  padding:0px;
+}
+div{
+  width:970px;
+  height:100px;
+}
+body{
+  background-color: red;
+}
+#lt{
+  display: inline-block;
+  width:49%;
+  height: 75px;
+}
+#logo{
+  height: 75px;
+  padding: 10px;
+}
+#rt{
+  display: inline-block;
+  width:49%;
+  text-align: right;
+  height:75px;
+}
+#searchBar{
+  position: relative;
+  right: 0px;
+  background-color: grey;
+  border-radius: 5px;
+  padding: 5px;
+  width: 200px;
+  height: 20px;
+}
+#navBar{
+  width: 98%;
+  height: 50px;
+  margin: auto;
+  background: linear-gradient(to left, white, black);
+  border-radius: 4px;
+  padding:2px;
+}
+#bt{
+  height: 200px;
+}
+#links{
+  background: linear-gradient(to bottom, white, black);
+  width: 29%;
+  height: 95%;
+  display: inline-block;
+}
+#twContent{
+  background: linear-gradient(to top, white, black);
+  width:69%;
+  display: inline-block;
+  height: 95%;
+}
+#topWrapper{
+  height:400px;
+  background-color: blue;
+}
+#midWrapper{
+  text-align: center;
+  background-color: white;
+  height: 300px;
+}
+#btmWrapper{
+  text-align: center;
+  background-color: blue;
+  height: 200px;
+}
+.column{
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  background: red;
+  display: inline-block;
+}
+.wrapper{
+  display: block;
+  height: 300px;
+  width: 970px;
+}
+.filler{
+  height: auto;
+  width: auto;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Demo</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        alert('Java enabled');
+        $('button');//selects all buttons
+        $('button.blue');//selects all buttons w class blue
+        $('button, .blue');//selects all buttons AND elements w class blue
+        $('#red');//selects element with id red
+        $('button').click(function(){
+          alert('button clicked');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button type="button" name="button">Button</button>
+  </body>
+</html>

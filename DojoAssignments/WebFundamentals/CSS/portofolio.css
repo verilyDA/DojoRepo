@@ -1,0 +1,74 @@
+*{
+  margin:5px;
+  border-style: dotted;
+}
+body{
+  background: radial-gradient(rgb(129, 94, 136),rgb(103, 75, 108),rgb(103, 74, 108),black)
+}
+div{
+  display: block;
+  text-align: center;
+}
+img{
+  margin: 0px;
+  padding:5px;
+  background:grey;
+  max-width:100%;
+}
+.headings{
+  margin: 0px;
+  padding: 5px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background: linear-gradient(rgb(111, 111, 111), rgb(65, 65, 65),rgb(111, 111, 111));
+}
+.content{
+  margin:0px;
+  padding: 0px;
+  width: 30%;
+  height: 100%;
+  display: inline-block;
+  text-align: justify;
+  vertical-align: top;
+  background: linear-gradient(to right, rgb(209, 197, 210), rgb(171, 144, 168))
+}
+.header{
+  height: auto;
+  margin:0px;
+  background-color: white;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+.smallPic{
+  width: 50px;
+  margin: 0px;
+  padding: 0px;
+  background: rgba(0,0,0,0);
+}
+.rlySmlPic{
+  width: 20px;
+  margin: 0px;
+  padding: 0px;
+  background: rgba(0,0,0,0);
+}
+#hLeft{
+  width: 45%;
+  text-align: left;
+  display: inline-block;
+}
+#hRight{
+  width: 45%;
+  display: inline-block;
+  text-align: right;
+}
+#photo{
+  width: 40%;
+  margin: 0px;
+  display: inline-block;
+}
+#bio{
+  width: 50%;
+  margin:0px 5px;
+  display: inline-block;
+  text-align: justify;
+}

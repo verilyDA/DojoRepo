@@ -1,0 +1,45 @@
+*{
+  margin: 5px;
+  border-radius: 15px;
+  color: #b8b7b6;
+}
+a{
+  color: #0098b9;
+}
+div{
+  padding: 10px;
+}
+.imp{
+  color: #44209c;
+}
+.wrapper{
+  display: inline-block;
+  background-color: #040037;
+  border-radius: 0;
+  margin: 0;
+}
+.header{
+  background-color: red;
+  font-size: 24px;
+  color: grey;
+  display: block;
+}
+.nav{
+  background-color: teal;
+  height: 300px;
+  width: 250px;
+  display: inline-block;
+}
+.content{
+  height: 500px;
+  width: 700px;
+  background-color: #01000d;
+  display: inline-block;
+  color: grey;
+  vertical-align: top;
+}
+.footer{
+  background-color: grey;
+  color: lightgrey;
+  display: block;
+}
