@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Contact Cards</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  var FNarr = [];
+  var LNarr = [];
+  var Darr = [];
+  var i = 0;
+  var descPool = [];
+  $(document).ready(function(){
+    $('form').on('submit', function(e){
+      e.preventDefault();
+      var fname, lname, desc;
+      fname = $('form').find('input[name="fname"]').val();
+      lname = $('form').find('input[name="lname"]').val();
+      desc = $('form').find('input[name="desc"]').val();
+      FNarr[i]=fname;
+      LNarr[i]=lname;
+      Darr[i]=desc;
+      descPool.push(false);
+      $('.cards').append('<div><h1>' + fname + ' ' + lname + '</h1><p id='+i+'>Click for description</p></div>');
+      i++;
+      $('form').find('input[name="fname"]').val('First Name');
+      $('form').find('input[name="lname"]').val('Last Name');
+      $('form').find('input[name="desc"]').val('desc');
+    });
+    $('.cards').on('click', 'p', function(e){
+      if(!descPool[$(this).attr("id")]){
+        $(this).text(Darr[$(this).attr("id")]);
+        descPool[$(this).attr("id")] = true;
+      }else{
+        $(this).text("Click for description");
+        descPool[$(this).attr("id")] = false;
+      }
+    });
+  });
+  </script>
+  <style>
+  .cards{
+    display: inline-block;
+    width: 400px;
+  }
+  form{
+    padding: 20px;
+    margin: 20px;
+    display: inline-block;
+  }
+  input{
+    display: block;
+  }
+  </style>
+  </head>
+  <body>
+  <div class="wrapper">
+  <form action="#" method="#">
+  <input type="text" name="fname" value="First Name">
+  <input type="text" name="lname" value="Last Name">
+  <input type="textarea" name="desc" value="Enter Description">
+  <input type="submit" name="submit" value="Add Contact">
+  </form>
+  <div class="cards">
+
+  </div>
+  </div>
+
+  </body>
+  </html>

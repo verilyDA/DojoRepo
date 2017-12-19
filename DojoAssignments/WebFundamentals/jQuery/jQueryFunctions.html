@@ -3,9 +3,88 @@
   <head>
     <meta charset="utf-8">
     <title>jQuery Functions</title>
+    <style>
+    .highlight{
+      background: yellow;
+    }
+    </style>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
-
+      $(document).ready(function(){
+        $("#click").click(function(){
+          $("#pClick").text("This text has changed because you clicked the button");
+        });
+        $("#hide").click(function(){
+          $("#pHide").hide();
+        });
+        $("#show").click(function(){
+          $("#pHide").show();
+        });
+        $("#toggle").click(function(){
+          $("#pToggle").toggle();
+        });
+        $("#slideDown").click(function(){
+          if ($("#pSlideDown").is(":hidden")){
+            $("#pSlideDown").slideDown();
+          }else{
+            $("#pSlideDown").hide();
+          }
+        });
+        $("#slideUp").click(function(){
+          if ($("#pSlideUp").is(":hidden")){
+            $("#pSlideUp").show();
+          }else{
+            $("#pSlideUp").slideUp();
+          }
+        });
+        $("#slideToggle").click(function(){
+          $("#pSlideToggle").slideToggle();
+        });
+        $("#fadeIn").click(function(){
+          if ($("#pFadeIn").is(":hidden")){
+            $("#pFadeIn").fadeIn();
+          }else{
+            $("#pFadeIn").hide();
+          }
+        });
+        $("#fadeOut").click(function(){
+          if ($("#pFadeOut").is(":hidden")){
+            $("#pFadeOut").show();
+          }else{
+            $("#pFadeOut").fadeOut();
+          }
+        });
+        $("#addClass").click(function(){
+          $("#pAddClass").text("I swear it had a class added, look at the new color!");
+          $("#pAddClass").addClass( "selected highlight");
+        });
+        $("#before").click(function(){
+          $("#pBefore").before("before");
+        });
+        $("#after").click(function(){
+          $("#pAfter").after("after");
+        });
+        $("#append").click(function(){
+          $("#pAppend").append("append");
+        });
+        $("#html").click(function(){
+          $("#pHtml").html("<b>This text has changed because you clicked the button</b>");
+        });
+        $("#attr").click(function(){
+          alert(""+$("#pAttr").attr('alt'));
+        });
+        $("#val").click(function(){
+          var Val = $("#inVal").val();
+          $("#pVal").text(Val);
+        });
+        $("#text").click(function(){
+          $("#pText").text("This just changes the text...");
+        });
+        $("#data").click(function(){
+          $("#pData").data("role") === "page";
+          $("#pData").data();
+        });
+      });
     </script>
   </head>
   <body>
@@ -22,7 +101,7 @@
     <div>
       <h1>.show</h1>
       <button id="show">Click me!</button>
-      <p id="pShow">watch for the change</p>
+      <p id="pShow">watch for the change on the hide block if it's hidden</p>
     </div>
     <div>
       <h1>.toggle</h1>
@@ -57,7 +136,7 @@
     <div>
       <h1>.addClass</h1>
       <button id="addClass">Click me!</button>
-      <p id="addClass">watch for the change</p>
+      <p id="pAddClass">watch for the change</p>
     </div>
     <div>
       <h1>.before</h1>
@@ -82,11 +161,12 @@
     <div>
       <h1>.attr</h1>
       <button id="attr">Click me!</button>
-      <p id="pAttr">watch for the change</p>
+      <img id="pAttr" src="img.png" alt="logo" title="overwatch">
     </div>
     <div>
       <h1>.val</h1>
       <button id="val">Click me!</button>
+      <input type="text" id="inVal" value="something">
       <p id="pVal">watch for the change</p>
     </div>
     <div>
