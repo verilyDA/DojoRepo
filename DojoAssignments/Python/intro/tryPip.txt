@@ -1,0 +1,7 @@
+pip install Django: It installs Django. pip is the program, install is the command, Django is whats being installed
+pip list: It gives a deprcation warning but otherwise gives a list of programs currently installed.
+pip install Django(the 2nd time): states requirement is met for Django and pytz. I suppose that means it was already installed
+pip freeze: shows the same as list but instead of the file version being in (), its after ==
+pip unistall Django: it unistalled Django
+pip show Django: gave an error that it wasn't there
+pip search Flask:It gives a huge list of info ending with a comment about a Zolenmeyer being considered stupid. I think these are different versions of Flask

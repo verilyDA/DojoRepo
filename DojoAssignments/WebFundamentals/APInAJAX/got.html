@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Game of Thrones</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('img').click(function(){
+          if($(this).attr('apinum') == 378){
+            alert('Does not exist in the API');
+          }else{
+            $.get('https://anapioficeandfire.com/api/houses/' + $(this).attr('apinum'), function(res){
+              var html_str = "";
+              html_str += "<h1>" + res.name + "</h1>";
+              html_str += "<h2>Words: " + res.words + "</h2>";
+              html_str += "<h2>Region: " + res.region + "</h2>";
+              html_str += "<h2>Coat of Arms: " + res.coatOfArms + "</h2>";
+              $('#detail').html(html_str);
+            }, 'json');
+          }
+        })
+      });
+    </script>
+    <style>
+    .wrapper{
+      text-align: center;
+    }
+    .house{
+      width:200px;
+      margin:50px;
+    }
+    #houses{
+    }
+    #detail{
+      text-align: left;
+    }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+  <div id="houses">
+    <img class ="house" src="./got/baratheon.png" alt="House Baratheon" title="House Baratheon" apinum='16'>
+    <img class ="house" src="./got/lannister.jpg" alt="House Lannister" title="House Lannister" apinum='229'>
+    <img class ="house" src="./got/stark.jpg" alt="House Stark" title="House Stark" apinum='362'>
+    <img class ="house" src="./got/targaryen.jpg" alt="House Targaryen" title="House Targaryen" apinum='378'>
+  </div>
+  <div id="detail">
+
+  </div>
+</div>
+</body>
+</html>
