@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ninja Gold</title>
+  </head>
+  <body>
+    <p>Your Gold: {{ money }}</p>
+    <form action="/process/farm" method="post">
+      <p><b>Farm</b>: earns 10-20 gold</p>
+      <input type="submit" name="" value="Find Some Gold!!!">
+    </form>
+    <form action="/process/cave" method="post">
+      <p><b>Cave</b>: earns 5-10 gold</p>
+      <input type="submit" name="" value="Find Some Gold!!!">
+    </form>
+    <form action="/process/house" method="post">
+      <p><b>House</b>: earns 2-5 gold</p>
+      <input type="submit" name="" value="Find Some Gold!!!">
+    </form>
+    <form action="/process/casino" method="post">
+      <p><b>Casino</b>: earns/takes 0-50 gold</p>
+      <input type="submit" name="" value="Find Some Gold!!!">
+      <p>Activity:</p>
+      <p>{{ activity|safe }}</p>
+  </body>
+</html>
