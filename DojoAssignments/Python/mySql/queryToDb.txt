@@ -1,0 +1,7 @@
+USE mydb;
+
+SELECT * FROM users; it's empty
+
+INSERT INTO users (username, fname, lname) VALUES ('blahUser', 'Jim', 'Jeffries');
+
+SELECT * FROM users; users table now has data

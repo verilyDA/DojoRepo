@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>first_app index.html from templates</title>
+    {% load static %}
+    <!-- line above tells django to listen for static files -->
+    <link rel="stylesheet" href="{% static 'first_app/css/main.css' %}" media="screen" title="test page" charset="utf-8">
+    <!-- put static files in the static folder -->
+  </head>
+  <body>
+    <h1>hello world</h1>
+    <p>{{email}} and  {{name}}</p>
+  </body>
+</html>

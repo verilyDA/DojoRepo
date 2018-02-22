@@ -1,0 +1,22 @@
+<html>
+<head>
+  <title>Dojo survey</title>
+</head>
+<body>
+  <h1>Survey</h1>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <form action='/process' method='POST'>
+    Name:<input type="text" name="name">
+    Location:<input type="text" name="location">
+    Favorite Language:<input type="text" name="lang">
+    Comment(optional):<input type="textarea" name="comment">
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

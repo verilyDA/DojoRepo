@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dojo Gold</title>
+
+  </head>
+  <body>
+    <p>Your Gold: {{request.session.gold}}</p>
+    <div class="choice">
+      <h1>Farm</h1>
+      <p>Earns 10-20 gold</p>
+      <form action="/process/farm" method="post">
+        {% csrf_token %}
+        <input type="submit" name="" value="Find Gold">
+      </form>
+    </div>
+    <div class="choice">
+      <h1>Cave</h1>
+      <p>Earns 5-10 gold</p>
+      <form action="/process/cave" method="post">
+        {% csrf_token %}
+        <input type="submit" name="" value="Find Gold">
+      </form>
+    </div>
+    <div class="choice">
+      <h1>House</h1>
+      <p>Earns 2-5 gold</p>
+      <form action="/process/house" method="post">
+        {% csrf_token %}
+        <input type="submit" name="" value="Find Gold">
+      </form>
+    </div>
+    <div class="choice">
+      <h1>Casino</h1>
+      <p>Wager 0-50 gold</p>
+      <form action="/process/casino" method="post">
+        {% csrf_token %}
+        <input type="submit" name="" value="Find Gold">
+      </form>
+    </div>
+    <h1>Activity List</h1>
+    {% for item in request.session.activity %}
+    <p>
+      {{item}}
+    </p>
+    {% endfor %}
+
+    <a href="/clear">clear the session</a>
+  </body>
+</html>

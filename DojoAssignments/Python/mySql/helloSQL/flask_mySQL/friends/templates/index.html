@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>firends</title>
+  </head>
+  <body>
+    <h1>friends</h1>
+    <h2>name - age - since</h2>
+    {% for each in friends %}
+      <h3>{{each['name']}} - {{each['age']}} - {{each['since']}}</h3>
+    {% endfor%}
+    <form  action="/newFriend" method="post">
+      <input type="text" name="name" value="">
+      <input type="number" name="age" value="">
+      <input type="submit" name="" value="">
+    </form>
+  </body>
+</html>

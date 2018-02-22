@@ -1,0 +1,177 @@
+-starting a django project-
+
+python -m virtual djangoENV - create your django environment
+call djangoENV/Scripts/activate - activate the virtual environment
+pip install django - install django onto venv
+
+-creating the project-
+
+django-admin startproject <name of project>
+
+-make the apps folder-
+
+cd <name of project>
+mkdir apps
+cd apps
+nul> __init__.py
+
+-from the apps folder-
+
+python ../manage.py startapp <name of app>
+
+-tie in the app to the project-
+
+-go to <name of project>/settings.py-
+
+-add your app to the installed apps list-
+
+INSTALLED_APPS = [
+  'apps.<name of app>',
+  -the rest-
+]
+
+-adding the app urls to the project-
+
+-go to <name of project>/urls.py-
+
+-it should look something like this-
+
+from django.conf.urls import url, include
+from django.contrib import admin
+urlpatterns = [
+  url(r'^', include('apps.first_app.urls'))
+]
+
+-next we create the urls.py for the app-
+
+cd apps/<name of app>
+nul> urls.py
+
+-add in this base code-
+
+from django.conf.urls import url
+from . import views
+urlpatterns = [
+  url(r'^$', views.index),
+]
+
+-next is the views.py for the app, so it knows what to do when you get to a specific url-
+
+cd apps/<name of app>
+nul> views.py #to create the file if it doesnt exist
+
+-put this base code in the views.py file-
+
+from django.shortcuts import render, HttpResponse, redirect
+def index(request):
+  response = "Hello, I am your first request!"
+  return HttpResponse(response)
+
+-and now to run the server to see if all works-
+
+cd <name of project>
+python manage.py runserver
+
+-go to localhost:8000 in your browser and see the basic response from the view.py file-
+
+- and thats the basics for a django project -
+
+- onto the urls regex -
+
+Here is a cheat sheet for expressions you'll be using regularly:
+
+'^' Matches the following characters at the beginning of a string. Example: '^a' matches 'anna' but not 'banana'.
+'$' Matches the previous characters at the end of a string. Example: 'a$' matches 'anna' and 'banana' but not 'fan'.
+'[]' Matches any value in a range. Example: '[0-9]' matches '9' and '9s'.
+'{n}' Matches n number or more repetitions of the preceding pattern. Example: '[0-9]{2}' matches '91' and '9834' but not '9'
+\d Matches digits.  Example: "\d" matches "8" and "877x"
+\d+ matches a string with one or more digits
+\w Matches characters.
+\w+ matches a string with one or more character/word
+
+- using templates -
+
+cd apps/<name of app>
+mkdir templates/<name of app>
+
+-place all html files here-
+
+-in the views.py of your app-
+
+def index(request):
+    context = {
+        "email" : "blog@gmail.com",
+        "name" : "mike"
+    }
+    return render(request, "ourApp/index.html", context) - change to render(<whatever param you put into your method>, "<name of app>/<name of html file>.html", <data variable you're pushing into it>)
+
+- using statics -
+
+cd apps/<name of app>
+mkdir static/<name of app>/css
+mkdir static/<name of app>/javascript
+mkdir static/<name of app>/images
+
+- basics html file that utilizes statics-
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+      {% load static %}
+
+    <!-- The line above tells Django to be ready to listen for static files -->
+
+    <link rel="stylesheet" href="{% static '<name of app>/css/<name of css file>.css' %}" media="screen" title="no title"  charset="utf-8">
+
+    <!-- Put the static files in the static folder inside your app.  Django collects files within all static folders and puts them within a single folder -->
+
+    </head>
+  <body>
+      <h1>Hello World!</h1>
+      {{variable being pushed from views.py}} and {{another one}}
+  </body>
+</html>
+
+-forms and submissions-
+
+-html for forms-
+
+<form action="/<name of app>/<end cap to url>" method="post">
+	{% csrf_token %}
+	Blog Name: <input type="text" name="name" placeholder="blog name">
+    Description: <textarea name="desc" placeholder="description"></textarea>
+	<input type="submit" value="submit">
+</form>
+
+-tie in to <name of app>urls.py-
+
+url(r'^<endcap of url>', views.<method you want to attach form submission to>)
+
+-tie in the <name of app>/views.py-
+
+def <method you want to attach form submission to>(request): # request can be anything
+if request.method == "POST":
+		print("*"*50)
+		print(request.POST)
+    print(request.POST['<name of variable from form>'])
+    request.session['<name of variable for anything>'] = <generally the variable you just received from the form>
+		print("*"*50)
+		return redirect("/")
+	else:
+		return redirect("/")
+
+-setting up session data
+
+cd <name of project>
+python manage.py makemigrations
+python migrate
+
+-and now we can use session data, its a dictionary which allows for key value pairs-
+
+<param for request that  you use>.session['<name of param>'] = #whatever
+
+- in an html file it looks like this-
+
+{{<param for request that you use>.session.<param>}}

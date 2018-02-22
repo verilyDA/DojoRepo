@@ -1,0 +1,93 @@
+----Insert statement
+
+INSERT INTO table_name (column_name1, column_name2)
+VALUES('column1_value', 'column2_value');
+
+----Select statement
+
+What query would you run to get all of the users?
+
+SELECT *
+FROM users;
+
+What query would you run to only get the first names of all of the users?
+
+SELECT first_name
+FROM users;
+
+What query would you run to only get the first and last names of all of the users?
+
+SELECT first_name, last_name
+FROM users;
+
+----SELECT w/ Sorting
+
+What query would you run to get all of the users with the youngest users at the top of the table?
+
+SELECT *
+FROM users
+ORDER BY birthday DESC;
+
+What query would you run to get all of the users with the oldest users at the top of the table?
+
+SELECT *
+FROM users
+ORDER BY birthday ASC;
+
+What query would you run to get all of the users with the first name that ends with "e" with the youngest users at the top of the table?
+
+SELECT *
+FROM users
+WHERE first_name LIKE "%e"
+ORDER BY birthday DESC;
+
+What query would you run to get only the first names of all of the users in alphabetical order?
+
+SELECT first_name
+FROM users
+ORDER BY first_name;
+
+-----Updating Records
+
+The SQL command pattern for updating/editing records is as follows:
+
+UPDATE table_name SET column_name1 = 'some_value', column_name2='another_value' WHERE condition(s)
+
+----DELETE Basics
+You can DELETE your records as well.
+
+If you are getting an error regarding SQL SAFE UPDATES, run the following command to let MySQL Workbench know that you know what you are doing and you want to DELETE stuff from the database.
+
+SET SQL_SAFE_UPDATES = 0;
+
+The SQL command pattern for deleting/removing records is as follows:
+
+DELETE FROM table_name WHERE condition(s)
+
+----Joining Tables
+
+One to One
+
+SELECT * FROM customers
+JOIN addresses ON addresses.id = customers.address_id;
+
+One to Many
+
+SELECT * FROM orders
+JOIN customers ON customers.id = orders.customer_id;
+
+Many to Many
+
+SELECT * FROM orders
+JOIN items_orders ON orders.id = items_orders.order_id
+JOIN items ON items.id = items_orders.item_id;
+
+----left JOIN
+
+SELECT *
+FROM users
+LEFT JOIN tweets
+ON users.id = tweets.user_id
+WHERE users.id = 1;
+
+\
